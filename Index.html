@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Happy Birthday Love Omisa ❤️</title>
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body, html {
+      margin: 0; padding: 0; width: 100%; height: 100%;
+      background: #fff0f3;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden; display: flex; justify-content: center; align-items: center;
+    }
+
+    /* Screen Transitions */
+    .screen {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      opacity: 0; visibility: hidden; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 15px; text-align: center;
+    }
+    .screen.active { opacity: 1; visibility: visible; }
+
+    /* Heart Pulse */
+    .heart-btn {
+      font-size: 90px; cursor: pointer;
+      animation: heartBeat 1.2s infinite ease-in-out;
+      filter: drop-shadow(0 10px 15px rgba(255, 75, 110, 0.3));
+    }
+    @keyframes heartBeat {
+      0% { transform: scale(0.9); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(0.9); }
+    }
+
+    /* Card Styling */
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      width: 100%; max-width: 360px;
+      padding: 25px 20px; border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      max-height: 85vh; overflow-y: auto;
+    }
+
+    .envelope-btn { font-size: 80px; cursor: pointer; margin: 15px 0; animation: float 2s infinite ease-in-out; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    /* Typewriter Styling */
+    #typewriter-text {
+      font-size: 15px; line-height: 1.8; color: #4a3e3d;
+      text-align: right; direction: rtl; white-space: pre-wrap;
+      font-weight: 500;
+    }
+
+    /* Cake Animation */
+    .cake-wrapper {
+      position: relative; width: 150px; height: 160px; margin: 20px auto; cursor: pointer;
+    }
+    .cake-body {
+      position: absolute; bottom: 0; width: 100%; height: 100px;
+      background: #ffb7b2; border-radius: 15px 15px 10px 10px;
+      box-shadow: inset 0 -10px 0 #ff9aa2;
+    }
+    .cake-body::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 30px;
+      background: #ffffff; border-radius: 15px 15px 20px 20px;
+    }
+    .candle {
+      position: absolute; top: 25px; left: 50%; transform: translateX(-50%);
+      width: 14px; height: 40px; background: #ffdac1; border-radius: 4px;
+    }
+    .flame {
+      position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+      width: 14px; height: 20px; background: #ffb703; border-radius: 50% 50% 20% 20%;
+      box-shadow: 0 0 15px #ffb703; animation: flicker 0.6s infinite alternate;
+    }
+    .flame.off { display: none; }
+    @keyframes flicker { 0% { opacity: 1; transform: translateX(-50%) scale(1); } 100% { opacity: 0.8; transform: translateX(-50%) scale(0.9); } }
+
+    /* Confetti Particle */
+    .particle {
+      position: fixed; top: -10px; font-size: 20px;
+      animation: fall 3s linear forwards; z-index: 999;
+    }
+    @keyframes fall {
+      to { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Keypad Lock */
+    .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 15px; }
+    .key {
+      background: #fff5f5; padding: 15px; border-radius: 14px;
+      font-weight: bold; font-size: 20px; color: #ff758f; cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .key:active { background: #ff758f; color: #fff; }
+    .pin-display { font-size: 28px; letter-spacing: 8px; font-weight: bold; color: #ff758f; min-height: 38px; }
+
+    /* Gallery */
+    .gallery {
+      display: flex; gap: 12px; overflow-x: auto; width: 100%;
+      padding: 10px 0; scroll-snap-type: x mandatory;
+    }
+    .gallery::-webkit-scrollbar { display: none; }
+    .gallery img {
+      width: 220px; height: 290px; object-fit: cover;
+      border-radius: 18px; scroll-snap-align: center; flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background: linear-gradient(135deg, #ff758f, #ff497c);
+      color: white; border: none; padding: 14px 20px; border-radius: 25px;
+      font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 15px;
+      box-shadow: 0 8px 15px rgba(255, 117, 143, 0.3);
+    }
+    button:active { transform: scale(0.98); }
+  </style>
+</head>
+<body>
+
+  <!-- Screen 1 -->
+  <div id="screen-1" class="screen active">
+    <div class="heart-btn" onclick="goToScreen(2)">❤️</div>
+    <p style="color: #ff758f; margin-top: 20px; font-weight: 600;">Tap to Start ✨</p>
+  </div>
+
+  <!-- Screen 2 -->
+  <div id="screen-2" class="screen">
+    <div class="card">
+      <h3 style="color: #ff758f; margin: 0;">A Special Letter For Omisa 💌</h3>
+      <p style="font-size: 13px; color: #888;">Tap the envelope to open</p>
+      <div class="envelope-btn" onclick="goToScreen(3)">✉️</div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Auto Typewriter Message -->
+  <div id="screen-3" class="screen">
+    <div class="card">
+      <div id="typewriter-text"></div>
+      <button id="msg-next-btn" style="display: none;" onclick="goToScreen(4)">Next (Cut Cake) ➔</button>
+    </div>
+  </div>
+
+  <!-- Screen 4: Cake -->
+  <div id="screen-4" class="screen">
+    <div class="card">
+      <h3 style="color: #ff758f; margin: 0;">Make a Wish Omisa! 🕯️✨</h3>
+      <p style="font-size: 12px; color: #888;">Tap on the candle to blow it out</p>
+      
+      <div class="cake-wrapper" onclick="blowCandle()">
+        <div class="candle">
+          <div class="flame" id="flame"></div>
+        </div>
+        <div class="cake-body"></div>
+      </div>
+
+      <button id="cake-next-btn" style="display: none;" onclick="goToScreen(5)">Unlock Memories ➔</button>
+    </div>
+  </div>
+
+  <!-- Screen 5: Keypad -->
+  <div id="screen-5" class="screen">
+    <div class="card">
+      <div style="font-size: 32px;">🔒</div>
+      <p style="font-size: 14px; color: #666; margin: 5px 0;">Enter Secret DOB To Unlock</p>
+      <div class="pin-display" id="pin-display">____</div>
+      <div class="keypad">
+        <div class="key" onclick="pressKey('1')">1</div>
+        <div class="key" onclick="pressKey('2')">2</div>
+        <div class="key" onclick="pressKey('3')">3</div>
+        <div class="key" onclick="pressKey('4')">4</div>
+        <div class="key" onclick="pressKey('5')">5</div>
+        <div class="key" onclick="pressKey('6')">6</div>
+        <div class="key" onclick="pressKey('7')">7</div>
+        <div class="key" onclick="pressKey('8')">8</div>
+        <div class="key" onclick="pressKey('9')">9</div>
+        <div class="key" onclick="pressKey('C')">C</div>
+        <div class="key" onclick="pressKey('0')">0</div>
+        <div class="key" onclick="checkPin()">✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 6: Memories -->
+  <div id="screen-6" class="screen">
+    <div class="card" style="max-width: 360px;">
+      <h3 style="color: #ff758f; margin-top: 0;">Our Precious Memories ✨</h3>
+      <p style="font-size: 12px; color: #888; margin-bottom: 10px;">Swipe left for photos 👉</p>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400" alt="1">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" alt="2">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400" alt="3">
+      </div>
+      <button onclick="goToScreen(1)" style="margin-top: 15px;">Replay 🔄</button>
+    </div>
+  </div>
+
+<script>
+  let currentPin = "";
+  const correctPin = "1609"; // 4-Digit DOB Code
+
+  const fullMessage = `♡ ʜᴀᴘᴘʏ ʙɪʀᴛʜᴅᴀʏ ᴍʏ Love Omisa ♡ 🎀🫶🏻🫀🤌🏻
+
+آج کا دن میــّۡـرے لیے دنــّۡـیا کے ســّۡـب ســّۡـے خوبــّۡـصورت دنوں مــّۡـیں سے ایــّۡـک ہے،👑🥰 کیــّۡـونکہ آج اُس شــّۡـخص کا دن ہے جو میــّۡـری دعــّۡـاؤں، میــّۡـری مــّۡـسکراہٹوں اور میــّۡـرے ســّۡـکون کی وجــّۡـہ ہے…🫀🥹🌍💐🤲🏻
+
+♡ تــّۡـم صــّۡـرف ایک شــّۡـخص نہیــّۡـں ہو، تم میــّۡـری خوشــّۡـی،😍🥳🫂 مــّۡـیری عــّۡـادت اور مــّۡـیرے دل کا ســّۡـب ســّۡـے حــّۡـسین احســّۡـاس ہو…🕊️♥️
+
+تمہــّۡـیں دیــّۡـکھ کــّۡـر دل کو وہ ســّۡـکون ملــّۡـتا ہے 💋🌈😌جو شــّۡـاید پــّۡـوری دنیــّۡـا بھــّۡـی نہ دے سکــّۡـے…🥺🌷
+
+💌 𝗠𝗮𝘆 𝘆𝗼𝘂𝗿 𝘀𝗺𝗶𝗹𝗲 𝗮𝗹𝘄𝗮𝘆𝘀 𝘀𝗵𝗶𝗻𝗲 𝗯𝗿𝗶𝗴𝗵𝘁𝗲𝗿 𝘁𝗵𝗮𝗻 𝘁𝗵𝗲 𝘀𝘁𝗮𝗿𝘀 🎉🤩😘✨ 𝗮𝗻𝗱 𝗺𝗮𝘆 𝗔𝗹𝗹𝗮𝗵 𝗳𝗶𝗹𝗹 𝘆𝗼𝘂𝗿 𝗹𝗶𝗳𝗲 𝘄𝗶𝘁𝗵 𝗲𝗻𝗱𝗹𝗲𝘀𝘀 𝗵𝗮𝗽𝗽𝗶𝗻𝗲𝘀𝘀, 𝘀𝘂𝗰𝗰𝗲𝘀𝘀 & 𝗹𝗼𝘃𝗲… 𝗔𝗺𝗲𝗲𝗻 🤲🏻🌸
+
+♡ تمــّۡـہاری ہــّۡـر خــّۡـواہش پــّۡـوری ہو، ہر دعــّۡـا قبــّۡـول ہو، 😞🥹🥳اور تم ہمــّۡـیشہ ایســّۡـے ہی ہنــّۡـستے مســّۡـکراتے رہــّۡـو کیــّۡـونکہ تمــّۡـہاری خوشــّۡـی ہی میــّۡـری خوشــّۡـی ہے…🫣🫀
+🎂✨
+𝗢𝗻 𝘁𝗵𝗶𝘀 𝗯𝗲𝗮𝘂𝘁𝗶𝗳𝘂𝗹 𝗱𝗮𝘆, 𝗜 𝗷𝘂𝘀𝘁 𝘄𝗮𝗻𝘁 𝘁𝗼 𝘀𝗮𝘆…
+𝗬𝗼𝘂 𝗮𝗿𝗲 𝘁𝗵𝗲 𝗺𝗼𝘀𝘁 𝗽𝗿𝗲𝗰𝗶𝗼𝘂𝘀 𝗽𝗮𝗿𝘁 𝗼𝗳 𝗺𝘆 𝗹𝗶𝗳𝗲 💖🌍
+𝗔𝗻𝗱 𝗜 𝗻𝗲𝘃𝗲𝗿 𝘄𝗮𝗻𝘁 𝘁𝗼 𝗹𝗼𝘀𝗲 𝘀𝗼𝗺𝗲𝗼𝗻𝗲 𝗮𝘀 𝘀𝗽𝗲𝗰𝗶𝗮𝗹 𝗮𝘀 𝘆𝗼𝘂…🥹🫶🏻
+🕯️💐
+♡ کبــّۡـھی کبــّۡـھی کــّۡـچھ لــّۡـوگ زنــّۡـدگی مــّۡـیں ســّۡـکون بــّۡـن کر آتے ہیں…💋🫂🤩😘 اور تــّۡـم میــّۡـرے لیــّۡـے وہــّۡـی ســّۡـکون ہو…🕊️♥️🥹🥳💋🤩
+
+تمــّۡـہارے بغــّۡـیر ہــّۡـر خوشــّۡـی ادھــّۡـوری لگتــّۡـی ہے، اور تمــّۡـہارے ســّۡـاتھ ہر لــّۡـمحہ خوبصــّۡـورت…🌸
+
+🎀 𝗛𝗔𝗣𝗣𝗬 𝗕𝗜𝗥𝗧𝗛𝗗𝗔𝗬 Meri 𝗝𝗔𝗔𝗡 Omisa 🎀
+الــّۡـله تمــّۡـہیں ہــّۡـمیشہ خــّۡـوش رکــّۡـھے،🥳💋🤩 ہر بــّۡـری نظــّۡـر سے بــّۡـچائے، اور تمہــّۡـاری زنــّۡـدگی محــّۡـبتوں ســّۡـے بھــّۡـر دے…🤍🌷
+
+╭─❀⊰ʟᴏᴠᴇ ʏᴏᴜ ғᴏʀᴇᴠᴇʀ ⊱❀─╮
+𝗦𝗼𝗺𝗲 𝗽𝗲𝗼𝗽𝗹𝗲 𝗯𝗲𝗰𝗼𝗺𝗲 𝘁𝗵𝗲 𝗿𝗲𝗮𝘀𝗼𝗻 𝗼𝗳 𝗼𝘂𝗿 𝗽𝗲𝗮𝗰𝗲… 𝗮𝗻𝗱 𝘆𝗼𝘂 𝗮𝗿𝗲 𝗼𝗻𝗲 𝗼𝗳 𝘁𝗵𝗲𝗺.” 🌍🥹`;
+
+  function goToScreen(num) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(`screen-${num}`).classList.add('active');
+    
+    if (num === 3) {
+      startTypewriter();
+    }
+  }
+
+  /* Typewriter Logic */
+  let i = 0;
+  function startTypewriter() {
+    document.getElementById('typewriter-text').innerText = "";
+    document.getElementById('msg-next-btn').style.display = "none";
+    i = 0;
+    
+    function type() {
+      if (i < fullMessage.length) {
+        document.getElementById('typewriter-text').innerText += fullMessage.charAt(i);
+        i++;
+        setTimeout(type, 35);
+      } else {
+        document.getElementById('msg-next-btn').style.display = "block";
+      }
+    }
+    type();
+  }
+
+  /* Candle Blow Logic */
+  function blowCandle() {
+    document.getElementById('flame').classList.add('off');
+    document.getElementById('cake-next-btn').style.display = 'block';
+    
+    for (let c = 0; c < 30; c++) {
+      let particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.innerText = ['💖', '✨', '🎉', '🌸', '🎂'][Math.floor(Math.random() * 5)];
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+      document.body.appendChild(particle);
+      
+      setTimeout(() => particle.remove(), 3000);
+    }
+  }
+
+  /* Keypad Logic */
+  function pressKey(val) {
+    if (val === 'C') currentPin = "";
+    else if (currentPin.length < 4) currentPin += val;
+    document.getElementById('pin-display').innerText = currentPin.padEnd(4, '_');
+  }
+
+  function checkPin() {
+    if (currentPin === correctPin) {
+      goToScreen(6);
+      currentPin = "";
+      document.getElementById('pin-display').innerText = "____";
+    } else {
+      document.getElementById('pin-display').innerText = "❌❌❌❌";
+      setTimeout(() => {
+        currentPin = "";
+        document.getElementById('pin-display').innerText = "____";
+      }, 700);
+    }
+  }
+</script>
+</body>
+</html>
